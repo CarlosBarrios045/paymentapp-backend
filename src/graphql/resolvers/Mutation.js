@@ -6,8 +6,8 @@ import dotenv from "dotenv";
 dotenv.config({ path: "variables.env" });
 
 const createToken = (user, secret, expiresIn) => {
-  const { id, name, lastname } = user;
-  return jwt.sign({ id, name, lastname }, secret, {
+  const { id } = user;
+  return jwt.sign({ id }, secret, {
     expiresIn,
   });
 };
@@ -76,6 +76,14 @@ const Mutation = {
     return {
       token: createToken(user, process.env.SECRET, "4h"),
     };
+  },
+  getUserLogged: async (_, args, { user }) => {
+    if (!user) return null;
+
+    // Get user of jwt
+    const userDB = await Users.findById(user.id);
+
+    return userDB;
   },
 };
 

@@ -8,7 +8,7 @@ const typeDefs = gql`
     getUser(id: ID!): User
 
     # Payments
-    getPayments(idUser: ID!): [Payment]
+    getPayments(idUser: ID): [Payment]
     getPayment(id: ID!): Payment
   }
 
@@ -25,6 +25,7 @@ const typeDefs = gql`
 
     # Login
     login(email: String!, password: String!): Token
+    getUserLogged: User
   }
 
   type User {
