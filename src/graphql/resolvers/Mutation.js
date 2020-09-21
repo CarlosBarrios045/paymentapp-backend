@@ -1,8 +1,8 @@
-import Users from "../../models/Users";
-import Payments from "../../models/Payments";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
+const Users = require("../../models/Users");
+const Payments = require("../../models/Payments");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
 dotenv.config({ path: "variables.env" });
 
 const createToken = (user, secret, expiresIn) => {
@@ -86,4 +86,4 @@ const Mutation = {
   },
 };
 
-export default Mutation;
+module.exports = Mutation;

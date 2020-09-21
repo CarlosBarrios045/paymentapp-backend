@@ -1,10 +1,10 @@
-import { ApolloServer } from "apollo-server";
-import jwt from "jsonwebtoken";
-import resolvers from "./graphql/resolvers";
-import typeDefs from "./graphql/schema";
-import dotenv from "dotenv";
+const { ApolloServer } = require("apollo-server");
+const jwt = require("jsonwebtoken");
+const resolvers = require("./graphql/resolvers");
+const typeDefs = require("./graphql/schema");
+const dotenv = require("dotenv");
 dotenv.config({ path: "variables.env" });
-import "./database";
+require("./database");
 
 const corsOptions = {
   origin: process.env.FRONTEND_URL,

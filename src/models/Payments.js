@@ -1,4 +1,4 @@
-import { Schema, model, ObjectId } from "mongoose";
+const { Schema, model, ObjectId } = require("mongoose");
 
 const paymentsSchema = new Schema({
   date: Date,
@@ -6,4 +6,4 @@ const paymentsSchema = new Schema({
   user: ObjectId,
 });
 
-export default model("Payments", paymentsSchema);
+module.exports = model("Payments", paymentsSchema);

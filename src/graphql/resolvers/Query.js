@@ -1,5 +1,5 @@
-import Users from "../../models/Users";
-import Payments from "../../models/Payments";
+const Users = require("../../models/Users");
+const Payments = require("../../models/Payments");
 
 const Query = {
   ping() {
@@ -31,4 +31,4 @@ const Query = {
   },
 };
 
-export default Query;
+module.exports = Query;

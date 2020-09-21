@@ -3,3 +3,5 @@
 
 *.lock
 *.error
+
+variables.env
