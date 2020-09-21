@@ -7,10 +7,17 @@ const Query = {
   },
   // # Users
   getUsers: async () => {
-    return await Users.find();
+    return await Users.find({ role: "CLIENT" });
   },
   getUser: async (_, { id }) => {
-    return await Users.findById(id);
+    try {
+      const user = await Users.findById(id);
+      if (!user) throw new Error("No se encontró el usuario");
+
+      return user;
+    } catch (error) {
+      throw new Error(error);
+    }
   },
   // # Users
   getPayments: async (_, { idUser }) => {

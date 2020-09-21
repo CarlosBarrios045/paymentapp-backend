@@ -46,7 +46,6 @@ const Mutation = {
 
   // # Payments
   createPayment: async (_, { input }) => {
-    console.log(input);
     const newPayment = new Payments(input);
     newPayment.id = newPayment._id;
     newPayment.date = new Date();
